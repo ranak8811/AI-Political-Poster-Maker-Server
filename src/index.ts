@@ -16,6 +16,7 @@ app.use(cors({
 app.use(express.json());
 
 import templateRoutes from './routes/template.routes';
+import authRoutes from './routes/auth.routes';
 
 // Health Check Endpoint
 app.get('/api/health', (_req: Request, res: Response) => {
@@ -25,6 +26,10 @@ app.get('/api/health', (_req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
   });
 });
+
+// Authentication Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // Template Routes
 app.use('/api/v1/templates', templateRoutes);
