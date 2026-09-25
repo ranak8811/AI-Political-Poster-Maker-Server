@@ -15,6 +15,8 @@ app.use(cors({
 }));
 app.use(express.json());
 
+import templateRoutes from './routes/template.routes';
+
 // Health Check Endpoint
 app.get('/api/health', (_req: Request, res: Response) => {
   res.status(200).json({
@@ -23,6 +25,10 @@ app.get('/api/health', (_req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
   });
 });
+
+// Template Routes
+app.use('/api/v1/templates', templateRoutes);
+app.use('/api/templates', templateRoutes);
 
 // Start Server after connecting to Database
 async function bootstrap() {
