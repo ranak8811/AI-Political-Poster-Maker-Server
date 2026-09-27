@@ -18,6 +18,7 @@ app.use(express.json());
 import templateRoutes from './routes/template.routes';
 import authRoutes from './routes/auth.routes';
 import uploadRoutes from './routes/upload.routes';
+import posterRoutes from './routes/poster.routes';
 
 // Health Check Endpoint
 app.get('/api/health', (_req: Request, res: Response) => {
@@ -39,6 +40,10 @@ app.use('/api/templates', templateRoutes);
 // Media Upload Routes
 app.use('/api/v1/upload', uploadRoutes);
 app.use('/api/upload', uploadRoutes);
+
+// Poster Routes
+app.use('/api/v1/posters', posterRoutes);
+app.use('/api/posters', posterRoutes);
 
 // Start Server after connecting to Database
 async function bootstrap() {
