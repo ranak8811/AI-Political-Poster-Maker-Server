@@ -105,6 +105,10 @@ export async function createPoster(req: AuthRequest, res: Response): Promise<voi
       success: true,
       message: 'Poster generation started in background',
       posterId: poster._id,
+      poster: {
+        _id: poster._id,
+        status: 'generating',
+      },
       status: 'generating',
     });
 
