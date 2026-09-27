@@ -35,7 +35,7 @@ export async function uploadPhoto(req: Request, res: Response): Promise<void> {
           }
         );
 
-        uploadStream.end(req.file!.buffer);
+        (uploadStream as any).end(req.file!.buffer);
       }
     );
 

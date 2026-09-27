@@ -268,6 +268,6 @@ export async function renderPoliticalPoster(params: RenderPosterParams): Promise
       }
     );
 
-    uploadStream.end(pngBuffer);
+    (uploadStream as any).end(pngBuffer);
   });
 }
